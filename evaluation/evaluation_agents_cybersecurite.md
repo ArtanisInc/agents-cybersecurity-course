@@ -1,11 +1,9 @@
 # Évaluation — IA, agents et cybersécurité
 
-**Public : Master 2 infrastructure / cybersécurité**  
-**Durée : 2h30**  
-**Format conseillé : groupes de 2 ou 3 étudiants**  
-**Documents autorisés : support de cours, notes personnelles, documentation officielle**  
-**Livrable attendu : un document Markdown ou PDF structuré**  
-**Barème : 100 points**
+**Durée :**  2h30  
+**Documents autorisés :**  support de cours, notes personnelles, documentation officielle  
+**Livrable attendu :** un document Markdown ou PDF structuré  
+**Barème :** 100 points
 
 ---
 
@@ -181,20 +179,6 @@ Votre réponse doit répondre aux questions suivantes :
 9. Quels sont les impacts possibles ?
 10. Quels contrôles permettraient de réduire ces risques ?
 
-## Format attendu
-
-Vous devez produire un tableau de ce type :
-
-| Élément | Menace | Exemple | Impact | Gravité | Contrôle possible |
-|---|---|---|---|---|---|
-| Ticket incident | Prompt injection indirecte | Instruction cachée dans un ticket | Mauvaise décision | Élevée | Marquage source non fiable |
-| Runbook | RAG poisoning | Fausse procédure | Action dangereuse | Critique | Validation/versioning |
-| Tool terminal | Commande dangereuse | Suppression fichier | Impact système | Critique | Sandbox/allowlist |
-| Skill | Script malveillant | Appel réseau externe | Fuite de données | Critique | Audit des fichiers |
-| Slack | Fuite d’info | Résumé trop détaillé | Non-conformité | Élevée | DLP/validation humaine |
-
-Vous pouvez ajouter autant de lignes que nécessaire.
-
 ## Critères d’évaluation
 
 Vous serez évalués sur :
@@ -239,32 +223,6 @@ Votre architecture doit inclure au minimum :
 - une gouvernance des skills ;
 - une gouvernance des connecteurs MCP ou équivalents.
 
-## Exemple de structure possible
-
-Vous pouvez vous inspirer de ce format, mais vous devez le compléter et l’expliquer :
-
-```txt
-Analyste SOC
-    |
-    v
-Interface AegisBot
-    |
-    v
-Orchestrateur agent
-    |
-    +--> Policy engine
-    |
-    +--> Tool gateway
-    |
-    +--> RAG sécurisé
-    |
-    +--> Sandbox
-    |
-    +--> Human approval workflow
-    |
-    +--> Audit logs
-```
-
 ## Questions à traiter
 
 1. Où placez-vous la séparation entre le modèle et les systèmes critiques ?
@@ -303,9 +261,7 @@ Vous serez évalués sur :
 
 Définir précisément ce qu’AegisBot peut faire, ne peut pas faire, et sous quelles conditions.
 
-## Actions à classer
-
-Vous devez au minimum classer les actions suivantes :
+## Exemple d'actions à classer
 
 1. lire une alerte SIEM ;
 2. lire des logs Kubernetes filtrés ;
@@ -315,34 +271,12 @@ Vous devez au minimum classer les actions suivantes :
 6. modifier un ticket ;
 7. fermer un ticket ;
 8. générer une commande ;
-9. exécuter une commande read-only en sandbox ;
-10. exécuter une commande en production ;
-11. exécuter `kubectl get pods` ;
-12. exécuter `kubectl describe pod` ;
-13. exécuter `kubectl logs --tail=200` ;
-14. exécuter `kubectl exec` ;
-15. exécuter `kubectl delete` ;
-16. proposer une règle Sigma ;
-17. activer une règle Sigma ;
-18. désactiver une règle SIEM ;
-19. envoyer un résumé Slack interne ;
-20. envoyer un email externe ;
-21. accéder à une URL externe ;
-22. installer une dépendance ;
-23. utiliser une skill non validée ;
-24. appeler un serveur MCP non approuvé.
-
-## Format attendu
-
-Vous devez produire une matrice de ce type :
-
-| Action | Autorisée ? | Automatique ? | Validation humaine ? | Environnement | Justification |
-|---|---|---:|---:|---|---|
-| Lire alerte SIEM | Oui | Oui | Non | Read-only | Nécessaire à l’analyse |
-| Créer ticket | Oui | Partiellement | Selon criticité | Jira limité | Utile mais risque de bruit |
-| Fermer ticket | Non | Non | Humain uniquement | N/A | Risque de dissimulation |
-| `kubectl delete` | Non | Non | Non | N/A | Action destructive |
-| Envoyer Slack | Oui | Non | Oui si données sensibles | Canal SOC | Risque de fuite |
+9. exécuter une commande en production ;
+10. désactiver une règle SIEM ;
+11. installer une dépendance ;
+12. utiliser une skill non validée ;
+13. appeler un serveur MCP non approuvé.
+14. ...
 
 ## Critères d’évaluation
 
@@ -390,51 +324,6 @@ kubernetes-incident-triage/
 ```
 
 Vous n’avez pas besoin d’écrire un vrai script complexe. Vous pouvez fournir un pseudo-script ou une description des commandes autorisées.
-
-## Contenu attendu de SKILL.md
-
-Votre `SKILL.md` doit inclure :
-
-1. objectif ;
-2. périmètre ;
-3. sources autorisées ;
-4. sources non fiables ;
-5. règles de sécurité ;
-6. commandes autorisées ;
-7. commandes interdites ;
-8. gestion des secrets ;
-9. règles de validation humaine ;
-10. format de sortie ;
-11. limitations connues.
-
-## Exemple de commandes à traiter
-
-Vous devez décider si les commandes suivantes sont autorisées ou interdites :
-
-```txt
-kubectl get pods
-kubectl get events
-kubectl describe pod
-kubectl logs --tail=200
-kubectl get networkpolicy
-kubectl get serviceaccount
-kubectl exec
-kubectl delete
-kubectl apply
-kubectl edit
-kubectl patch
-kubectl create secret
-```
-
-## Questions à traiter
-
-1. Pourquoi `kubectl get` peut-il être autorisé sous conditions ?
-2. Pourquoi `kubectl logs` doit-il être filtré ?
-3. Pourquoi `kubectl exec` est-il risqué ?
-4. Pourquoi `kubectl delete`, `apply`, `edit` et `patch` doivent-ils être interdits ou fortement contrôlés ?
-5. Comment éviter que la skill révèle des secrets ?
-6. Comment auditer la skill avant installation ?
-7. Que doit faire l’agent si un document lu par la skill contient une instruction contradictoire ?
 
 ## Critères d’évaluation
 
@@ -517,23 +406,6 @@ Exemples :
 - politique appliquée ;
 - décision finale ;
 - erreurs ou refus.
-
-## Indicateurs possibles
-
-Vous pouvez proposer des indicateurs comme :
-
-- nombre d’appels tools par jour ;
-- nombre d’actions bloquées ;
-- nombre de validations humaines ;
-- nombre de détections de prompt injection ;
-- taux de réponses sans sources ;
-- taux de secrets masqués ;
-- nombre de skills installées ;
-- nombre de connecteurs approuvés ;
-- nombre d’appels vers services externes ;
-- temps moyen d’analyse ;
-- taux de faux positifs ;
-- taux de corrections humaines.
 
 ## Critères d’évaluation
 
@@ -640,10 +512,3 @@ Ce bonus peut être utilisé par le formateur pour départager deux très bons r
 AegisBot doit être utile, mais jamais tout-puissant.
 
 Votre objectif n’est pas de bloquer tous les usages IA. Votre objectif est de concevoir une architecture dans laquelle l’agent reste utile même lorsqu’il se trompe, rencontre une source malveillante ou reçoit une demande ambiguë.
-
-Phrase à garder en tête :
-
-```txt
-Le risque d’un agent IA n’est pas ce qu’il dit.
-Le risque est ce qu’il peut faire.
-```
