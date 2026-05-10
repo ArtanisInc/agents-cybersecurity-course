@@ -14,3 +14,8 @@ Déterminer le type d’attaque en la nommant et en expliquant les caractéristi
 
 ## Étape 4 — Produire une réponse sûre de l’agent
 Rédiger une réponse que l’agent pourrait fournir
+
+## Étape 5 — Proposer des défenses
+Proposer des mesures de défense pour prévenir ou atténuer l’attaque
+- Quelles sont les meilleures pratiques pour se protéger contre ce type d’attaque ?
+- Quels outils ou technologies peuvent être utilisés pour renforcer la sécurité contre cette menace ?
