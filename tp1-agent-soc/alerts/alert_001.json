@@ -1,0 +1,9 @@
+{
+  "alert_id": "ALERT-2026-001",
+  "title": "High number of failed SSH login attempts",
+  "asset": "srv-prod-ssh-01",
+  "severity": "medium",
+  "source": "SIEM",
+  "detected_at": "2026-05-10T08:42:00Z",
+  "summary": "287 failed SSH login attempts detected within 10 minutes."
+}

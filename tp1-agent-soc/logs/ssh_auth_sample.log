@@ -1,0 +1,8 @@
+May 10 08:35:14 srv-prod-ssh-01 sshd[14821]: Failed password for invalid user admin from 185.199.110.153 port 44822 ssh2
+May 10 08:35:18 srv-prod-ssh-01 sshd[14825]: Failed password for root from 185.199.110.153 port 44826 ssh2
+May 10 08:35:23 srv-prod-ssh-01 sshd[14831]: Failed password for invalid user test from 185.199.110.153 port 44830 ssh2
+May 10 08:35:29 srv-prod-ssh-01 sshd[14834]: Failed password for invalid user oracle from 185.199.110.153 port 44834 ssh2
+May 10 08:36:04 srv-prod-ssh-01 sshd[14910]: Failed password for root from 45.83.64.12 port 50512 ssh2
+May 10 08:36:11 srv-prod-ssh-01 sshd[14918]: Failed password for invalid user ubuntu from 45.83.64.12 port 50520 ssh2
+May 10 08:36:19 srv-prod-ssh-01 sshd[14924]: Failed password for invalid user deploy from 45.83.64.12 port 50528 ssh2
+May 10 08:38:45 srv-prod-ssh-01 sshd[15001]: Accepted publickey for deploy from 10.0.4.12 port 52210 ssh2
