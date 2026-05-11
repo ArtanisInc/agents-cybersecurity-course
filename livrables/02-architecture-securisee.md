@@ -88,13 +88,15 @@ Tout tool inconnu ou modifié sans validation est refusé.
 
 AegisBot peut proposer des commandes, mais ne peut exécuter automatiquement que des diagnostics read-only approuvés dans une sandbox.
 
+Les diagnostics Kubernetes autorisés doivent cibler uniquement un `<namespace-autorisé>` issu d’une allowlist validée par la policy ; la sandbox, le filtrage/masquage des résultats et le RBAC doivent empêcher tout accès aux namespaces sensibles.
+
 Autorisés en sandbox :
 
 ```txt
-kubectl get pods --all-namespaces
-kubectl describe pod <pod> -n <namespace>
-kubectl logs <pod> -n <namespace> --tail=200
-kubectl get events -n <namespace>
+kubectl get pods -n <namespace-autorisé>
+kubectl describe pod <pod> -n <namespace-autorisé>
+kubectl logs <pod> -n <namespace-autorisé> --tail=200
+kubectl get events -n <namespace-autorisé>
 ```
 
 Interdits automatiquement :
