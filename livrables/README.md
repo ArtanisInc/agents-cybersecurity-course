@@ -2,10 +2,6 @@
 
 Ce dossier contient le rendu complet pour l’étude de cas **AegisBot / Northwind Health Cloud**.
 
-## Rendu principal recommandé
-
-- `evaluation-aegisbot-complete.md` — rendu consolidé prêt à remettre, couvrant les 5 parties de l’évaluation.
-
 ## Découpage par livrable
 
 1. `01-modele-de-menace.md` — actifs, sources non fiables, attaques, impacts et contrôles.
